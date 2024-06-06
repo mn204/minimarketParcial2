@@ -190,3 +190,54 @@ INSERT INTO COMANDA (IDCOMANDA, COMANDAMESA, FECHACOMANDA, PRECIOCOMANDA, COMAND
 2024-06-06 19:05:21.341 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
 2024-06-06 19:05:21.341 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
 2024-06-06 19:05:21.344 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:12:17.915 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:12:23.015 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:12:33.459 [main] ERROR Minimarket - null
+2024-06-06 19:12:37.074 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:12:39.292 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:12:47.347 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 19:12:47.347 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 19:12:47.566 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:18:11.980 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:18:15.056 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:18:19.071 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 19:18:19.071 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 19:18:19.071 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:18:31.837 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:18:35.054 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:18:51.125 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 19:18:51.125 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 19:18:51.328 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:25:19.729 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:25:23.798 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:25:29.869 [main] ERROR Minimarket - null
+2024-06-06 19:25:40.628 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:25:43.779 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:26:13.452 [main] ERROR Minimarket - null
+2024-06-06 19:27:14.141 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:27:16.289 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:28:09.021 [main] ERROR Minimarket - null
+2024-06-06 19:28:11.111 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:28:12.787 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:28:23.723 [main] ERROR Minimarket - null
+2024-06-06 19:28:33.101 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:28:35.273 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:28:53.815 [main] ERROR Minimarket - null
+2024-06-06 19:34:49.260 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:34:52.248 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:34:53.294 [main] ERROR Minimarket - Columna "PRECIOCOMANDA" no encontrada
+Column "PRECIOCOMANDA" not found; SQL statement:
+SELECT PRECIOCOMANDA FROM VENTA [42122-224]
+2024-06-06 19:34:53.501 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:36:18.185 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:36:20.166 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:36:25.687 [main] ERROR Minimarket - null
+2024-06-06 19:41:48.528 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:41:48.735 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 19:41:48.735 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:41:52.425 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:41:54.556 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:42:04.617 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 19:42:04.617 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 19:42:04.827 [main] INFO  Minimarket - Cerrando Minimarket

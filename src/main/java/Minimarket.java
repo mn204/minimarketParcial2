@@ -108,12 +108,14 @@ public class Minimarket {
                     logger.info("Se consultaron las ventas del minimarket");
                     break;
                 case 5:
-                    mostrarTodosLosProductos();
+                    mostrarBalance();
                     break;
                 case 6:
                     crearComanda();
                     break;
                 case 7:
+                    mostrarComandasImpagas();
+                    pagarComanda();
                     break;
                 case 8:
                     break;
@@ -126,6 +128,48 @@ public class Minimarket {
             }
         }
         logger.info("Empleado deslogueado legajo: "+ idEmpleado);
+    }
+    //Mostrar Balance
+    public static void mostrarBalance() throws SQLException {
+        System.out.println("Ventas");
+        System.out.println(SEPARADOR);
+        mostrarVentas();
+        System.out.println(SEPARADOR);
+        System.out.println("Comandas");
+        System.out.println(SEPARADOR);
+        mostrarComandas();
+        System.out.println(SEPARADOR);
+        mostrarPagosPendientes();
+        System.out.println(SEPARADOR);
+        try{
+            System.out.println("Ganancias totales: "+calcularGanancias());
+            System.out.println("Gastos totales: "+calcularPerdidas());
+            System.out.println("Balance: "+ (calcularGanancias()-calcularPerdidas()));
+        }catch (SQLException e){
+            System.out.println("Error: "+ e.getMessage());
+        }
+
+    }
+    //Pagar Comanda
+    public static void pagarComanda(){
+        try{
+            System.out.println("Ingresar ID de la Comanda:");
+            int idComanda = sc.nextInt();
+            sc.nextLine();
+            String sql = "UPDATE COMANDA SET COMANDAPAGADO = TRUE WHERE IDCOMANDA = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, idComanda);
+            int pagar = pstmt.executeUpdate();
+            if (pagar > 0){
+                System.out.println("Comanda paga correctamente");
+            }else{
+                System.out.println("Error al pagar la comanda");
+            }
+        }catch (SQLException e){
+            System.out.println("Error al pagar la comanda:" + e.getMessage());
+        }
+
+
     }
     //Crear Comanda
     public static void crearComanda(){
@@ -193,7 +237,7 @@ public class Minimarket {
                 int opcionConsulta = sc.nextInt();
                 sc.nextLine();
                 if (opcionConsulta == 1 || opcionConsulta == 2){
-                    mostrarVentas(opcionConsulta);
+                    mostrarVentasFiltrada(opcionConsulta);
                     break;
                 }else {
                     System.out.println("Opcion no valida");
@@ -363,7 +407,62 @@ public class Minimarket {
         }
     }
 
-    private static void mostrarVentas(int opcion) throws SQLException {
+    private static double calcularGanancias() throws SQLException {
+        String sqlVentas = "SELECT PRECIOVENTATOTAL FROM VENTA";
+        String sqlComandas = "SELECT PRECIOCOMANDA FROM COMANDA";
+        PreparedStatement pstmtVentas = conn.prepareStatement(sqlVentas);
+        PreparedStatement pstmtComandas = conn.prepareStatement(sqlComandas);
+        ResultSet rsVentas = pstmtVentas.executeQuery();
+        ResultSet rsComandas = pstmtComandas.executeQuery();
+        double gananciaTotal = 0;
+        while (rsComandas.next()){
+            double precioComanda = rsComandas.getDouble("PRECIOCOMANDA");
+            gananciaTotal += precioComanda;
+        }
+        while (rsVentas.next()){
+            double percioVenta = rsVentas.getDouble("PRECIOVENTATOTAL");
+            gananciaTotal += percioVenta;
+        }
+        return gananciaTotal;
+    }
+
+    private static double calcularPerdidas() throws SQLException {
+        String sql = "SELECT COSTOTOTALMERCADERIA FROM PAGOMERCADERIA";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
+        double perdidasTotales = 0;
+        while (rs.next()){
+            double precioPago = rs.getDouble("COSTOTOTALMERCADERIA");
+            perdidasTotales += precioPago;
+        }
+        return perdidasTotales;
+    }
+
+    private static void mostrarVentas() throws SQLException {
+        String sql = "SELECT * FROM VENTA ";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            System.out.printf("%-10s %-12s %-14s %-10s%n", "Id Venta", "Id Cliente", "Precio Total", "Fecha");
+            System.out.println(SEPARADOR);
+            boolean hasResults = false;
+            while (rs.next()) {
+                hasResults = true;
+                int idVenta = rs.getInt("IDVENTA");
+                String idcliente = rs.getString("IDCLIENTE");
+                String precioVentaTotal = rs.getString("PRECIOVENTATOTAL");
+                Date fechaVenta = rs.getDate("FECHAVENTA");
+                String fechaVentaStr = (fechaVenta != null) ? fechaVenta.toString() : "null";
+
+                System.out.printf("%-10d %-12s %-14s %-20s%n", idVenta, idcliente, precioVentaTotal, fechaVentaStr);
+            }
+
+            if (!hasResults) {
+                System.out.println("No se encontraron ventas para el dia especificado.");
+            }
+        }
+    }
+
+    private static void mostrarVentasFiltrada(int opcion) throws SQLException {
         String sql;
         if (opcion == 1) {
             sql = "SELECT * FROM VENTA WHERE DAY(FECHAVENTA) = ? AND MONTH(FECHAVENTA) = ?";
@@ -448,6 +547,49 @@ public class Minimarket {
         }else{
             System.out.println("No se pudo agregar el plato a la comanda");
             return false;
+        }
+    }
+
+    private static void mostrarComandas() throws SQLException{
+        String sql = "SELECT * FROM COMANDA";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        System.out.printf("%-10s %-12s %-14s %-10s%n", "Id Comanda", "Mesa", "Fecha", "Precio");
+        System.out.println(SEPARADOR);
+        boolean hasResults = false;
+        while (rs.next()) {
+            hasResults = true;
+            int idComana = rs.getInt("IDCOMANDA");
+            String mesa = rs.getString("COMANDAMESA");
+            Date fechaComanda = rs.getDate("FECHACOMANDA");
+            double precioComanda = rs.getDouble("PRECIOCOMANDA");
+
+            System.out.printf("%-10d %-12s %-14s %-20s%n", idComana, mesa, fechaComanda, precioComanda);
+        }
+
+        if (!hasResults) {
+            System.out.println("No se encontraron ventas para el dia especificado.");
+        }
+    }
+
+    private static void mostrarComandasImpagas() throws SQLException{
+        String sql = "SELECT * FROM COMANDA WHERE COMANDAPAGADO = FALSE";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        System.out.printf("%-10s %-12s %-14s %-10s%n", "Id Comanda", "Mesa", "Fecha", "Precio");
+        boolean hasResults = false;
+        while (rs.next()) {
+            hasResults = true;
+            int idComana = rs.getInt("IDCOMANDA");
+            String mesa = rs.getString("COMANDAMESA");
+            Date fechaComanda = rs.getDate("FECHACOMANDA");
+            double precioComanda = rs.getDouble("PRECIOCOMANDA");
+
+            System.out.printf("%-10d %-12s %-14s %-20s%n", idComana, mesa, fechaComanda, precioComanda);
+        }
+
+        if (!hasResults) {
+            System.out.println("No se encontraron ventas para el dia especificado.");
         }
     }
 
@@ -616,6 +758,7 @@ public class Minimarket {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             System.out.println("Pagos Pendientes:");
+            System.out.println(SEPARADOR);
             System.out.println("ID Pago  | Costo Total | Fecha de Pago | Proveedor     ");
             System.out.println(SEPARADOR);
             while (rs.next()) {

@@ -57,3 +57,136 @@ SELECT idEmpleado, nombreEmpleado, apellidoEmpleado FROM Empleado [42104-224]
 2024-06-05 18:38:11.171 [main] INFO  Minimarket - Empleado deslogueado legajo: 342
 2024-06-05 18:38:11.171 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
 2024-06-05 18:38:11.171 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:52:35.356 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:52:35.465 [main] ERROR Minimarket - Conexión rota: "java.net.UnknownHostException: Host desconocido (~): ~"
+Connection is broken: "java.net.UnknownHostException: Host desconocido (~): ~" [90067-224]
+2024-06-06 17:52:35.481 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:53:02.285 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:53:02.441 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:53:02.441 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:53:16.687 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:53:16.843 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:53:16.843 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:53:32.171 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:53:32.343 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:53:32.343 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:54:10.623 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:54:10.780 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:54:10.780 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:54:18.821 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:54:18.977 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:54:18.977 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:56:10.560 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:56:10.763 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:56:10.763 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:57:24.464 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:57:24.636 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:57:24.636 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 17:59:07.081 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 17:59:07.268 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 17:59:07.268 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:03:55.097 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:03:55.253 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 18:03:55.257 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:14:21.788 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:14:21.975 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 18:14:21.975 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:19:46.975 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:19:47.131 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 18:19:47.131 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:19:55.247 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:19:59.455 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:20:06.505 [main] INFO  Minimarket - Se consultaron las ventas del minimarket
+2024-06-06 18:20:17.537 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 18:20:17.537 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 18:20:17.732 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:25:09.480 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:25:09.652 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 18:25:09.652 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:25:17.392 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:25:21.496 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:25:49.270 [main] ERROR Minimarket - null
+2024-06-06 18:25:52.279 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:25:55.343 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:26:07.097 [main] ERROR Minimarket - null
+2024-06-06 18:44:05.149 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:44:05.305 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 18:44:05.305 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:44:10.166 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:44:14.345 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:44:26.427 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 18:44:26.427 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 18:44:26.630 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:45:00.915 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:45:04.129 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:45:21.918 [main] ERROR Minimarket - null
+2024-06-06 18:45:54.319 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:45:57.391 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:46:11.453 [main] ERROR Minimarket - Error al procesar la venta: Metodo permitido unicamente en un query. Use execute ó executeUpdate en lugar de executeQuery
+Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+INSERT INTO PLATOSENCOMANDA  (IDPLATO, IDCOMANDA, CANTIDADDEPLATOS) VALUES (?, ?, ?) [90002-224]
+2024-06-06 18:46:26.516 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 18:46:26.516 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 18:46:26.717 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:47:51.268 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:47:55.374 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:47:59.392 [main] ERROR Minimarket - null
+2024-06-06 18:47:59.407 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:48:11.056 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:48:14.198 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:48:20.223 [main] ERROR Minimarket - Error al procesar la venta: Violación de una restricción de Integridad Referencial: "CONSTRAINT_5ED4: PUBLIC.PLATOSENCOMANDA FOREIGN KEY(IDCOMANDA) REFERENCES PUBLIC.COMANDA(IDCOMANDA) (1)"
+Referential integrity constraint violation: "CONSTRAINT_5ED4: PUBLIC.PLATOSENCOMANDA FOREIGN KEY(IDCOMANDA) REFERENCES PUBLIC.COMANDA(IDCOMANDA) (1)"; SQL statement:
+INSERT INTO PLATOSENCOMANDA  (IDPLATO, IDCOMANDA, CANTIDADDEPLATOS) VALUES (?, ?, ?) [23506-224]
+2024-06-06 18:51:21.804 [main] ERROR Minimarket - null
+2024-06-06 18:56:18.241 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:56:18.428 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 18:56:18.428 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:56:22.714 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:56:25.759 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:56:36.838 [main] ERROR Minimarket - null
+2024-06-06 18:56:37.042 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 18:56:47.355 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:56:50.511 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:56:56.558 [main] ERROR Minimarket - Error al procesar la venta: Columna "IDPRODUCTO" no encontrada
+Column "IDPRODUCTO" not found; SQL statement:
+SELECT PRECIOPLATO FROM PLATO WHERE IDPRODUCTO = ? [42122-224]
+2024-06-06 18:57:57.064 [main] ERROR Minimarket - null
+2024-06-06 18:57:59.898 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 18:58:02.898 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 18:58:23.029 [main] ERROR Minimarket - Error al procesar la venta: Violación de una restricción de Integridad Referencial: "CONSTRAINT_5ED4: PUBLIC.PLATOSENCOMANDA FOREIGN KEY(IDCOMANDA) REFERENCES PUBLIC.COMANDA(IDCOMANDA) (2)"
+Referential integrity constraint violation: "CONSTRAINT_5ED4: PUBLIC.PLATOSENCOMANDA FOREIGN KEY(IDCOMANDA) REFERENCES PUBLIC.COMANDA(IDCOMANDA) (2)"; SQL statement:
+INSERT INTO PLATOSENCOMANDA  (IDPLATO, IDCOMANDA, CANTIDADDEPLATOS) VALUES (?, ?, ?) [23506-224]
+2024-06-06 18:59:28.801 [main] ERROR Minimarket - null
+2024-06-06 19:01:40.779 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:01:43.244 [main] ERROR Minimarket - null
+2024-06-06 19:01:50.292 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:01:52.478 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:02:28.636 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 19:02:28.636 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 19:02:28.839 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:04:05.449 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:04:05.605 [main] ERROR Minimarket - La base de datos puede que ya esté siendo utilizada: "C:/Users/juanc/test2.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/juanc/test2.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-06-06 19:04:05.605 [main] INFO  Minimarket - Cerrando Minimarket
+2024-06-06 19:04:15.963 [main] INFO  Minimarket - Abriendo Minimarket
+2024-06-06 19:04:19.095 [main] INFO  Minimarket - Empleado logueado legajo: 1
+2024-06-06 19:04:42.169 [main] ERROR Minimarket - Error al procesar la venta: Violación de indice de Unicidad ó Clave primaria: "PRIMARY KEY ON PUBLIC.COMANDA(IDCOMANDA) ( /* key:0 */ 1, 1, DATE '2024-06-06', 2050.00, FALSE)"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.COMANDA(IDCOMANDA) ( /* key:0 */ 1, 1, DATE '2024-06-06', 2050.00, FALSE)"; SQL statement:
+INSERT INTO COMANDA (IDCOMANDA, COMANDAMESA, FECHACOMANDA, PRECIOCOMANDA, COMANDAPAGADO) VALUES (?, ?, CURRENT_DATE, ?, ?) [23505-224]
+2024-06-06 19:05:21.341 [main] INFO  Minimarket - Empleado deslogueado legajo: 1
+2024-06-06 19:05:21.341 [main] ERROR Minimarket - Cannot invoke "java.sql.Statement.close()" because "Minimarket.stmt" is null
+2024-06-06 19:05:21.344 [main] INFO  Minimarket - Cerrando Minimarket

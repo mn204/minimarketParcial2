@@ -16,7 +16,7 @@ public class Minimarket {
     //static final String DB_URL = "jdbc:h2:~/h2/testdb";
     //static final String DB_URL = "jdbc:h2:mem:test"; <---- se crea en memoria, se va cuando termine el programa,
     //static final String DB_URL = "jdbc:h2:tcp://localhost/~/h2/test";
-    static final String DB_URL = "jdbc:h2:tcp://localhost/~/test";
+    static final String DB_URL = "jdbc:h2:~/test2";
 
     //  Credenciales
     static final String USER = "sa";
@@ -111,6 +111,7 @@ public class Minimarket {
                     mostrarTodosLosProductos();
                     break;
                 case 6:
+                    crearComanda();
                     break;
                 case 7:
                     break;
@@ -125,6 +126,60 @@ public class Minimarket {
             }
         }
         logger.info("Empleado deslogueado legajo: "+ idEmpleado);
+    }
+    //Crear Comanda
+    public static void crearComanda(){
+        try {
+            System.out.println("Ingresar ID de la Comanda:");
+            int idComanda = sc.nextInt();
+            sc.nextLine();
+            int idCliente;
+            while (true) {
+                System.out.println("Ingrese el ID del Cliente:");
+                idCliente = sc.nextInt();
+                sc.nextLine();
+                if (clienteExiste(idCliente)) {
+                    break;
+                } else {
+                    System.out.println("Cliente no encontrado. Intente nuevamente.");
+                }
+            }
+
+            List<int[]> comidaComanda = new ArrayList<>();
+            double precioComandaTotal = 0.0;
+            boolean agregarOtroPlato = true;
+
+            while (agregarOtroPlato) {
+                mostrarTodosLosPlatos();
+                System.out.println("Elegir el Plato (ID):");
+                int idPlato = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Ingrese cantidad del plato:");
+                int cantidadPlato = sc.nextInt();
+                sc.nextLine();
+
+                comidaComanda.add(new int[]{idPlato, cantidadPlato});
+                precioComandaTotal += obtenerPrecioPlato(idPlato) * cantidadPlato;
+
+                System.out.println("¿Desea agregar otro plato? (S/N):");
+                String respuesta = sc.nextLine();
+                if (!respuesta.equalsIgnoreCase("S")) {
+                    agregarOtroPlato = false;
+                }
+            }
+            System.out.println("Ingresar la Mesa:");
+            int mesa = sc.nextInt();
+            sc.nextLine();
+            registrarComanda(idComanda, mesa, precioComandaTotal);
+            for (int[] ints : comidaComanda) {
+                if (agregarPlatoComanda(idComanda, ints[0], ints[1])){
+                    System.out.println("Plato agregado a la comanda");
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al procesar la venta: " + e.getMessage());
+            logger.error("Error al procesar la venta: " + e.getMessage());
+        }
     }
     //Consultar Ventas
     public static void consultarVentas(){
@@ -341,6 +396,18 @@ public class Minimarket {
         }
     }
 
+    private static double obtenerPrecioPlato(int idProducto) throws SQLException {
+        String sql = "SELECT PRECIOPLATO FROM PLATO WHERE IDPLATO = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, idProducto);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble("PRECIOPLATO");
+            } else {
+                throw new SQLException("Producto no encontrado.");
+            }
+        }
+    }
 
     private static double obtenerPrecioProducto(int idProducto) throws SQLException {
         String sql = "SELECT PRECIOPRODUCTO FROM PRODUCTO WHERE IDPRODUCTO = ?";
@@ -366,6 +433,36 @@ public class Minimarket {
             } else {
                 return false; // Client not found or no cantidadCompraCliente set
             }
+        }
+    }
+
+    private static boolean agregarPlatoComanda(int idComanda, int idPlato, int cantidadPlato) throws SQLException{
+        String sql = "INSERT INTO PLATOSENCOMANDA  (IDPLATO, IDCOMANDA, CANTIDADDEPLATOS) VALUES (?, ?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, idPlato);
+        pstmt.setInt(2, idComanda);
+        pstmt.setInt(3, cantidadPlato);
+        int rs = pstmt.executeUpdate();
+        if (rs > 0){
+            return true;
+        }else{
+            System.out.println("No se pudo agregar el plato a la comanda");
+            return false;
+        }
+    }
+
+    private static void registrarComanda(int idComanda,int mesa,double precioComandaTotal) throws SQLException {
+        String sql = "INSERT INTO COMANDA (IDCOMANDA, COMANDAMESA, FECHACOMANDA, PRECIOCOMANDA, COMANDAPAGADO) VALUES (?, ?, CURRENT_DATE, ?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, idComanda);
+        pstmt.setInt(2, mesa);
+        pstmt.setDouble(3, precioComandaTotal);
+        pstmt.setBoolean(4, false);
+        int rs = pstmt.executeUpdate();
+        if (rs > 0){
+            System.out.println("Comanda Creada");
+        }else{
+            System.out.println("No se pudo crear la comanda");
         }
     }
 
@@ -435,6 +532,25 @@ public class Minimarket {
                 double precioProducto = rs.getDouble("precioProducto");
                 int stockProducto = rs.getInt("stockProducto");
                 System.out.printf("%-10d %-20s %-10.2f %-10d%n", idProducto, nombreProducto, precioProducto, stockProducto);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al mostrar todos los productos: " + e.getMessage());
+            logger.error("Error al mostrar todos los productos: " + e.getMessage());
+        }
+    }
+
+    public static void mostrarTodosLosPlatos() {
+        String sql = "SELECT * FROM PLATO";
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.printf("%-10s %-22s %-10s%n", "ID", "Nombre", "Precio");
+            System.out.println(SEPARADOR);
+            while (rs.next()) {
+                int idProducto = rs.getInt("IDPLATO");
+                String nombreProducto = rs.getString("NOMBREPLATO");
+                double precioProducto = rs.getDouble("PRECIOPLATO");
+                System.out.printf("%-10s %-22s %-10s%n", idProducto, nombreProducto, precioProducto);
             }
         } catch (SQLException e) {
             System.out.println("Error al mostrar todos los productos: " + e.getMessage());
